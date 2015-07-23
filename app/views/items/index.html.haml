@@ -1,0 +1,12 @@
+%ul
+  - @items.each do |item|
+    %li
+      %div
+        %strong> Name
+        \: #{item.name}
+      %div
+        %strong> Category
+        \: #{item.category}
+      %div
+        %strong> Price
+        \: #{number_to_currency(item.price_in_cents / 100)}
