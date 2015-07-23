@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :customers
-  # root 'home#index'
+  root 'home#index'
 
-  root 'items#index'
+  get 'items', to: 'items#index'
+
+  devise_for :customers
 
 end

@@ -7,8 +7,29 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
-    %p{class: "notice"}
-      = notice
-    %p{class: "alert"}
-      = alert
-    = yield
+
+    .header
+      = link_to image_tag('food.png', class: 'header__homeButton', height: '150px', width: '150px'), "/"
+
+      .header__loginNav
+        %h2
+          - if current_customer
+            = link_to 'Log Out', destroy_customer_session_path, method: :delete
+          - else
+            = link_to 'Log In', new_customer_session_path
+            = link_to 'Sign Up', new_customer_registration_path
+
+      .header__userNotifications
+        %h3{class: "notice"}
+          = notice
+        %h3{class: "alert"}
+          = alert
+
+    .topNav
+      = link_to 'Home', root_path, { class: 'topNav__button' }
+      - if current_customer
+        =link_to 'Your Items', items_path, { class: 'topNav__button' }
+
+    .body
+
+      = yield

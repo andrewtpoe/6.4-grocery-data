@@ -1,0 +1,33 @@
+.header {
+  height: 250px;
+  width: 60%;
+  background-color: $accent1-color;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 30px;
+  border: 2px solid $fg-color;
+  box-shadow: 2px 2px 10px;
+  display: inline-block;
+  > a {
+    display: inline-block;
+  }
+}
+.header__homeButton {
+  position: absolute;
+  left: 50px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.header__loginNav {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 50px;
+}
+.header__userNotifications {
+  position: absolute;
+  top: 80%;
+  right: 50px;
+}

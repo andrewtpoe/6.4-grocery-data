@@ -1,0 +1,26 @@
+// Global Variables:
+
+$fg-color: #e8e1ca;
+$bg-color: #c8bea6;
+$item-bg-color: #e9e9e9;
+$text-color: #62483c;
+$accent1-color: #7e7464;
+$accent2-color: #a66352;
+
+// Global Styling:
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+html,
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+body {
+  background-color: $bg-color;
+}
