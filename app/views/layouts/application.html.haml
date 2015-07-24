@@ -28,7 +28,7 @@
     .topNav
       = link_to 'Home', root_path, { class: 'topNav__button' }
       - if current_customer
-        =link_to 'Your Items', items_path, { class: 'topNav__button' }
+        =link_to 'Your Items', items_path(page_number: 1), { class: 'topNav__button' }
 
     .body
 

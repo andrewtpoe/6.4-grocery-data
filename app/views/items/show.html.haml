@@ -1,0 +1,54 @@
+%h1 Your items:
+
+- pn = params[:page_number].to_i
+- mp = params[:max_pages].to_i
+
+.item__list
+  - if mp == 0
+    %div.item__single
+      %strong You don't have any items yet!
+  -else
+    - @items.each do |item|
+      %div.item__single
+        %strong Name:
+        = item.name
+        %br
+        %strong Category:
+        = item.category
+        %br
+        %strong Price:
+        = number_to_currency(item.price_in_cents / 100)
+        %br
+
+- if mp < 5
+  .item__pageNav
+    %ul
+      - i = 1
+      - mp.times do |n|
+        %li.item__pageNums
+          = link_to "#{pn + i}", items_path(page_number: (pn + i))
+        - i += 1
+- elsif pn >= 3 && pn < mp - 2
+  .item__pageNav
+    %ul
+      - i = -2
+      - 5.times do |n|
+        %li.item__pageNums
+          = link_to "#{pn + i}", items_path(page_number: (pn + i))
+        - i += 1
+- elsif pn >= mp - 2
+  .item__pageNav
+    %ul
+      - i = -4
+      - 5.times do |n|
+        %li.item__pageNums
+          = link_to "#{mp + i}", items_path(page_number: (mp + i))
+        - i += 1
+- else
+  .item__pageNav
+    %ul
+      - i = 0
+      - 5.times do |n|
+        %li.item__pageNums
+          = link_to "#{pn + i}", items_path(page_number: (pn + i))
+        - i += 1
