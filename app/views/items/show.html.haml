@@ -20,35 +20,34 @@
         = number_to_currency(item.price_in_cents / 100)
         %br
 
-- if mp < 5
-  .item__pageNav
-    %ul
-      - i = 1
-      - mp.times do |n|
-        %li.item__pageNums
-          = link_to "#{pn + i}", items_path(page_number: (pn + i))
-        - i += 1
-- elsif pn >= 3 && pn < mp - 2
-  .item__pageNav
-    %ul
-      - i = -2
-      - 5.times do |n|
-        %li.item__pageNums
-          = link_to "#{pn + i}", items_path(page_number: (pn + i))
-        - i += 1
-- elsif pn >= mp - 2
-  .item__pageNav
-    %ul
-      - i = -4
-      - 5.times do |n|
-        %li.item__pageNums
-          = link_to "#{mp + i}", items_path(page_number: (mp + i))
-        - i += 1
-- else
-  .item__pageNav
-    %ul
-      - i = 0
-      - 5.times do |n|
-        %li.item__pageNums
-          = link_to "#{pn + i}", items_path(page_number: (pn + i))
-        - i += 1
+.item__pageNav
+  - if mp < 5
+    - i = 1
+    - mp.times do |n|
+      %a{ href: "/items_page/#{pn + i}", class: "item__pageNums" }
+        ="#{pn + i}"
+      - i += 1
+  - elsif pn <= 3 && pn < mp - 2
+    - i = 1
+    - 5.times do |n|
+      %a{ href: "/items_page/#{i}", class: "item__pageNums" }
+        ="#{i}"
+      - i += 1
+  - elsif pn > 3 && pn < mp - 2
+    - i = -2
+    - 5.times do |n|
+      %a{ href: "/items_page/#{pn + i}", class: "item__pageNums" }
+        ="#{pn + i}"
+      - i += 1
+  - elsif pn >= mp - 2
+    - i = -4
+    - 5.times do |n|
+      %a{ href: "/items_page/#{mp + i}", class: "item__pageNums" }
+        ="#{mp + i}"
+      - i += 1
+  - else
+    - i = 0
+    - 5.times do |n|
+      %a{ href: "/items_page/#{pn + i}", class: "item__pageNums" }
+        ="#{pn + i}"
+      - i += 1

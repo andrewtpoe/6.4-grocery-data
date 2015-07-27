@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  get '/items/:page_number', to: 'items#show', as: 'items'
+  get '/items_page/:page_number',
+        to: 'items#show',
+        as: 'items_page'
 
   devise_for :customers
 
