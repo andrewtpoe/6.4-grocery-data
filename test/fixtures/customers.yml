@@ -1,3 +1,5 @@
 one:
   name: "Robert Pearce"
   address: "123 Main Street, Americaville, SC 29306"
+  email: test-email@gmail.com
+  encrypted_password: <%= BCrypt::Password.create('password', cost: 4) %>

@@ -9,5 +9,5 @@ class Customer < ActiveRecord::Base
         #  :validatable
   has_many :items
 
-  validates :name, presence: true
+  validates :name, :email, presence: true
 end

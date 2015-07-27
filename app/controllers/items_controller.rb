@@ -19,12 +19,3 @@ class ItemsController < ApplicationController
   end
 
 end
-
-# def users_paginated_ajax
-#   users = User.all
-#   page_number = params[:page_number].to_i
-#   limit_per_page = 20
-#   @users = User.limit(20).offset(limit_per_page  * (page_number - 1))
-#   respond_to do |format|
-#     format.json { render json: @users }
-#   end

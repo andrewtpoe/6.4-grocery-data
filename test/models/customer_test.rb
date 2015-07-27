@@ -15,6 +15,12 @@ class CustomerTest < ActiveSupport::TestCase
     assert @customer.errors.keys.include?(:name)
   end
 
+  test 'is invalid without email' do
+    @customer.email = nil
+    refute @customer.valid?
+    assert @customer.errors.keys.include?(:email)
+  end
+
   test "has many items" do
     assert_respond_to @customer, :items
     assert_instance_of Item, @customer.items.new

@@ -3,6 +3,7 @@ require 'test_helper'
 class ItemTest < ActiveSupport::TestCase
   def setup
     @item = items(:one)
+    @customer = customers(:one)
   end
 
   test "the fixture is valid" do
@@ -26,4 +27,5 @@ class ItemTest < ActiveSupport::TestCase
     assert_respond_to @item, :customer
     assert_instance_of Customer, @item.customer
   end
+
 end
